@@ -1,0 +1,370 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+.root{background:#08090f;color:#dde0ea;font-family:'DM Mono',monospace;padding:1.25rem;position:relative;overflow:hidden}
+.gbg{position:absolute;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(255,196,0,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,196,0,0.03) 1px,transparent 1px);background-size:36px 36px}
+.rel{position:relative;z-index:1}
+.hdr{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,196,0,0.12);padding-bottom:.9rem;margin-bottom:1rem}
+.logo{display:flex;align-items:center;gap:9px}
+.logo i{font-size:26px;color:#ffc400}
+.ttl{font-family:'Orbitron',sans-serif;font-size:16px;font-weight:700;letter-spacing:2px;color:#ffc400}
+.sub{font-size:10px;letter-spacing:3px;color:rgba(255,196,0,0.4);text-transform:uppercase}
+.bw{font-family:'Orbitron',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;color:#00cf9a;border:1px solid #00cf9a;padding:3px 8px;border-radius:4px}
+.livebar{display:flex;align-items:center;gap:8px;background:rgba(255,196,0,0.05);border:1px solid rgba(255,196,0,0.1);border-radius:7px;padding:8px 14px;margin-bottom:1rem;font-size:11px;flex-wrap:wrap;gap:6px}
+.dot{width:7px;height:7px;border-radius:50%;background:#ff3b3b;animation:pd 1.2s infinite}
+@keyframes pd{0%,100%{opacity:1}50%{opacity:.25}}
+.lred{color:#ff3b3b;font-weight:500}
+.sep{color:rgba(255,255,255,.18)}
+.lmut{color:rgba(255,255,255,.4)}
+.lval{color:#ffc400;font-weight:500}
+.inp-row{display:flex;gap:7px;margin-bottom:.8rem;align-items:center}
+.inp{flex:1;background:rgba(255,196,0,0.06);border:1px solid rgba(255,196,0,0.25);color:#ffc400;font-family:'Orbitron',sans-serif;font-size:17px;font-weight:700;padding:9px 12px;border-radius:7px;outline:none;text-align:center;letter-spacing:1px;min-width:0}
+.inp:focus{border-color:rgba(255,196,0,.65)}
+.inp::placeholder{color:rgba(255,196,0,.22);font-size:12px;font-weight:400}
+.btn{background:#ffc400;color:#08090f;font-family:'Orbitron',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;border:none;padding:9px 14px;border-radius:7px;cursor:pointer;white-space:nowrap}
+.btn:hover{background:#ffe066}
+.btnc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.45);font-family:'DM Mono',monospace;font-size:12px;padding:9px 12px;border-radius:7px;cursor:pointer}
+.btnc:hover{background:rgba(255,255,255,.09)}
+.qrow{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:.9rem;align-items:center}
+.qlbl{font-size:10px;color:rgba(255,255,255,.22);letter-spacing:1px}
+.chip{font-family:'Orbitron',sans-serif;font-size:11px;font-weight:700;padding:4px 9px;border-radius:4px;cursor:pointer;transition:transform .1s}
+.chip:hover{transform:scale(1.06)}
+.c1{background:rgba(255,55,55,.14);color:#ff6666;border:1px solid rgba(255,55,55,.28)}
+.c2{background:rgba(255,145,0,.13);color:#ff9500;border:1px solid rgba(255,145,0,.28)}
+.c3{background:rgba(255,196,0,.1);color:#ffc400;border:1px solid rgba(255,196,0,.22)}
+.c4{background:rgba(0,207,154,.1);color:#00cf9a;border:1px solid rgba(0,207,154,.22)}
+.c5{background:rgba(100,140,255,.13);color:#8ab0ff;border:1px solid rgba(100,140,255,.28)}
+.card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:9px;padding:.9rem;margin-bottom:.9rem}
+.ctitle{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:10px;display:flex;align-items:center;gap:5px}
+.ctitle i{font-size:14px;color:#ffc400}
+.hgrid{display:flex;flex-wrap:wrap;gap:5px}
+.empty{text-align:center;padding:1.5rem;font-size:11px;color:rgba(255,255,255,.2);letter-spacing:1px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem}
+.bnum{font-family:'Orbitron',sans-serif;font-size:30px;font-weight:900;line-height:1}
+.blbl{font-size:11px;color:rgba(255,255,255,.35);margin-top:3px}
+.sig{margin-top:8px;padding:5px 9px;border-radius:5px;font-size:11px;font-weight:500;letter-spacing:.5px;display:inline-flex;align-items:center;gap:5px}
+.sh{background:rgba(0,207,154,.1);color:#00cf9a;border:1px solid rgba(0,207,154,.22)}
+.sm{background:rgba(255,196,0,.08);color:#ffc400;border:1px solid rgba(255,196,0,.18)}
+.sl{background:rgba(255,55,55,.09);color:#ff6666;border:1px solid rgba(255,55,55,.2)}
+.ag{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.st{text-align:center;background:rgba(255,255,255,.025);border-radius:7px;padding:9px 6px;border:1px solid rgba(255,255,255,.055)}
+.sv{font-family:'Orbitron',sans-serif;font-size:18px;font-weight:700;color:#ffc400}
+.sl2{font-size:10px;color:rgba(255,255,255,.3);margin-top:2px;letter-spacing:.8px}
+.pred{border-radius:9px;padding:.9rem;margin-bottom:.9rem;border:1px solid rgba(0,207,154,.2);background:rgba(0,207,154,.04)}
+.ptitle{font-size:10px;letter-spacing:2px;color:rgba(0,207,154,.55);text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:5px}
+.ptitle i{font-size:14px;color:#00cf9a}
+.pmain{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.pnum{font-family:'Orbitron',sans-serif;font-size:38px;font-weight:900;color:#00cf9a}
+.pdesc{font-size:11px;color:rgba(255,255,255,.4);max-width:220px;line-height:1.65}
+.cbar-row{margin-top:9px;display:flex;align-items:center;gap:9px;font-size:11px;color:rgba(255,255,255,.35)}
+.cbar{flex:1;height:3px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden}
+.cfill{height:100%;border-radius:2px;background:#00cf9a;transition:width .5s ease}
+.zones{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:.75rem}
+.zone{border-radius:7px;padding:.7rem;border:1px solid;text-align:center}
+.zone-lbl{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
+.zone-val{font-family:'Orbitron',sans-serif;font-size:20px;font-weight:700}
+.zone-sub{font-size:10px;margin-top:2px;opacity:.65}
+.warn{font-size:10px;color:rgba(255,255,255,.2);text-align:center;border-top:1px solid rgba(255,255,255,.05);padding-top:.9rem;line-height:1.75}
+.model-note{font-size:10px;color:rgba(0,207,154,.5);letter-spacing:.5px;margin-top:6px;display:flex;align-items:center;gap:5px}
+.model-note i{font-size:12px}
+</style>
+
+<div class="root">
+<div class="gbg"></div>
+<h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden">Aviator statistical detector for Betway. Enter crash multipliers to build a log-normal model and get probability-based cashout recommendations.</h2>
+
+<div class="rel">
+
+<div class="hdr">
+  <div class="logo">
+    <i class="ti ti-plane-departure" aria-hidden="true"></i>
+    <div>
+      <div class="ttl">AVIATOR DETECTOR</div>
+      <div class="sub">Statistical Model v2</div>
+    </div>
+  </div>
+  <div class="bw">betway.co.bw</div>
+</div>
+
+<div class="livebar">
+  <div class="dot"></div><span class="lred">LIVE</span>
+  <span class="sep">|</span><span class="lmut">Rounds:</span><span class="lval" id="nRounds">0</span>
+  <span class="sep">|</span><span class="lmut">μ (log):</span><span class="lval" id="muVal">—</span>
+  <span class="sep">|</span><span class="lmut">σ (log):</span><span class="lval" id="sigVal">—</span>
+  <span class="sep">|</span><span class="lmut">House edge est.:</span><span class="lval" id="heVal">—</span>
+</div>
+
+<div class="inp-row">
+  <input class="inp" id="mi" type="number" step="0.01" min="1.01" placeholder="e.g.  2.45" />
+  <button class="btn" onclick="add()"><i class="ti ti-plus" aria-hidden="true"></i> Add</button>
+  <button class="btnc" onclick="clearAll()"><i class="ti ti-trash" aria-hidden="true"></i></button>
+</div>
+
+<div class="qrow">
+  <span class="qlbl">Quick:</span>
+  <button class="chip c1" onclick="qa(1.00)">1.00x</button>
+  <button class="chip c1" onclick="qa(1.15)">1.15x</button>
+  <button class="chip c1" onclick="qa(1.50)">1.50x</button>
+  <button class="chip c2" onclick="qa(2.00)">2.00x</button>
+  <button class="chip c3" onclick="qa(3.50)">3.50x</button>
+  <button class="chip c4" onclick="qa(7.00)">7.00x</button>
+  <button class="chip c5" onclick="qa(20.0)">20.0x</button>
+  <button class="chip c5" onclick="qa(50.0)">50.0x</button>
+</div>
+
+<div class="card">
+  <div class="ctitle"><i class="ti ti-history" aria-hidden="true"></i> crash history (tap to remove)</div>
+  <div class="hgrid" id="hg"><div class="empty">No data — add crash multipliers above</div></div>
+</div>
+
+<div id="main" style="display:none">
+
+<div class="g2">
+  <div class="card" style="margin-bottom:0">
+    <div class="ctitle"><i class="ti ti-chart-line" aria-hidden="true"></i> geometric mean</div>
+    <div class="bnum" id="gmean" style="color:#8ab0ff">—</div>
+    <div class="blbl">True central tendency</div>
+  </div>
+  <div class="card" style="margin-bottom:0">
+    <div class="ctitle"><i class="ti ti-alert-triangle" aria-hidden="true"></i> last crash</div>
+    <div class="bnum" id="lastv" style="color:#ff6666">—</div>
+    <div class="blbl" id="lastlbl">—</div>
+    <div id="lastsig"></div>
+  </div>
+</div>
+<div style="margin-bottom:.75rem"></div>
+
+<div class="card">
+  <div class="ctitle"><i class="ti ti-chart-histogram" aria-hidden="true"></i> probability zones (log-normal model)</div>
+  <div class="zones" style="margin-top:10px">
+    <div class="zone" style="background:rgba(255,55,55,.07);border-color:rgba(255,55,55,.22)">
+      <div class="zone-lbl" style="color:#ff6666">Below 2x</div>
+      <div class="zone-val" style="color:#ff6666" id="z1">—</div>
+      <div class="zone-sub" style="color:#ff6666">of rounds crash here</div>
+    </div>
+    <div class="zone" style="background:rgba(255,196,0,.06);border-color:rgba(255,196,0,.18)">
+      <div class="zone-lbl" style="color:#ffc400">2x – 10x</div>
+      <div class="zone-val" style="color:#ffc400" id="z2">—</div>
+      <div class="zone-sub" style="color:#ffc400">sweet-spot range</div>
+    </div>
+    <div class="zone" style="background:rgba(0,207,154,.06);border-color:rgba(0,207,154,.18)">
+      <div class="zone-lbl" style="color:#00cf9a">Above 10x</div>
+      <div class="zone-val" style="color:#00cf9a" id="z3">—</div>
+      <div class="zone-sub" style="color:#00cf9a">high-value outliers</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="ctitle"><i class="ti ti-chart-bar" aria-hidden="true"></i> distribution stats</div>
+  <div class="ag">
+    <div class="st"><div class="sv" id="p25">—</div><div class="sl2">25th pct</div></div>
+    <div class="st"><div class="sv" id="p50">—</div><div class="sl2">Median</div></div>
+    <div class="st"><div class="sv" id="p75">—</div><div class="sl2">75th pct</div></div>
+    <div class="st"><div class="sv" id="p90">—</div><div class="sl2">90th pct</div></div>
+    <div class="st"><div class="sv" id="stddev">—</div><div class="sl2">Std dev</div></div>
+    <div class="st"><div class="sv" id="skew">—</div><div class="sl2">Skewness</div></div>
+  </div>
+</div>
+
+<div class="card" style="margin-bottom:.75rem">
+  <div class="ctitle"><i class="ti ti-trending-up" aria-hidden="true"></i> trend — last 25 rounds</div>
+  <div style="position:relative;height:150px"><canvas id="tc" role="img" aria-label="Bar chart of recent Aviator crash multipliers"></canvas></div>
+</div>
+
+<div class="pred">
+  <div class="ptitle"><i class="ti ti-target" aria-hidden="true"></i> probability-based cashout targets</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+    <div>
+      <div style="font-size:10px;color:rgba(0,207,154,.5);letter-spacing:1px;margin-bottom:3px">SAFE (70% win rate)</div>
+      <div class="pnum" id="t70" style="font-size:28px">—</div>
+    </div>
+    <div>
+      <div style="font-size:10px;color:rgba(255,196,0,.6);letter-spacing:1px;margin-bottom:3px">BALANCED (50% win rate)</div>
+      <div class="pnum" id="t50" style="font-size:28px;color:#ffc400">—</div>
+    </div>
+  </div>
+  <div style="font-size:11px;color:rgba(255,255,255,.35);line-height:1.65;margin-bottom:8px" id="predtext">—</div>
+  <div class="model-note"><i class="ti ti-info-circle" aria-hidden="true"></i><span id="modelnote">Log-normal fit — needs ≥5 rounds</span></div>
+  <div class="cbar-row">
+    <span>Model fit</span>
+    <div class="cbar"><div class="cfill" id="cfill" style="width:0%"></div></div>
+    <span id="cpct">0%</span>
+  </div>
+</div>
+
+</div>
+
+<div class="warn">
+  ⚠ Aviator uses provably fair RNG. Each round is statistically independent — past crashes do not influence future outcomes.<br>
+  Analysis is mathematical pattern tracking only, not prediction. Gamble responsibly — <strong style="color:rgba(255,255,255,.28)">responsiblegambling.co.bw</strong>
+</div>
+
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+let rounds=[], chart=null;
+
+function tier(v){return v<1.5?'c1':v<2?'c2':v<5?'c3':v<10?'c4':'c5'}
+
+function qa(v){rounds.unshift(v);render()}
+function add(){
+  const el=document.getElementById('mi');
+  const v=parseFloat(el.value);
+  if(isNaN(v)||v<1.01){el.style.borderColor='#ff3b3b';setTimeout(()=>el.style.borderColor='',800);return}
+  rounds.unshift(parseFloat(v.toFixed(2)));
+  el.value='';render();
+}
+document.getElementById('mi').addEventListener('keydown',e=>{if(e.key==='Enter')add()});
+function clearAll(){rounds=[];render()}
+
+function logNormalCDF(x,mu,sigma){
+  if(x<=0)return 0;
+  return 0.5*(1+erf((Math.log(x)-mu)/(sigma*Math.SQRT2)));
+}
+function erf(x){
+  const t=1/(1+0.3275911*Math.abs(x));
+  const p=t*(0.254829592+t*(-0.284496736+t*(1.421413741+t*(-1.453152027+t*1.061405429))));
+  const r=1-p*Math.exp(-x*x);
+  return x<0?-r:r;
+}
+function logNormalInvApprox(p,mu,sigma){
+  const z=normInv(p);
+  return Math.exp(mu+sigma*z);
+}
+function normInv(p){
+  const a=[2.515517,0.802853,0.010328];
+  const b=[1.432788,0.189269,0.001308];
+  const t=p<0.5?Math.sqrt(-2*Math.log(p)):Math.sqrt(-2*Math.log(1-p));
+  const num=a[0]+a[1]*t+a[2]*t*t;
+  const den=1+b[0]*t+b[1]*t*t+b[2]*t*t*t;
+  const z=t-num/den;
+  return p<0.5?-z:z;
+}
+function percentile(arr,p){
+  const s=[...arr].sort((a,b)=>a-b);
+  const i=(p/100)*(s.length-1);
+  const lo=Math.floor(i),hi=Math.ceil(i);
+  return s[lo]+(s[hi]-s[lo])*(i-lo);
+}
+function skewness(arr){
+  const n=arr.length;if(n<3)return 0;
+  const m=arr.reduce((a,b)=>a+b,0)/n;
+  const s=Math.sqrt(arr.reduce((a,b)=>a+(b-m)**2,0)/(n-1));
+  if(s===0)return 0;
+  return (n/((n-1)*(n-2)))*arr.reduce((a,b)=>a+((b-m)/s)**3,0);
+}
+
+function render(){
+  const n=rounds.length;
+  document.getElementById('nRounds').textContent=n;
+  const hg=document.getElementById('hg');
+  if(n===0){
+    hg.innerHTML='<div class="empty">No data — add crash multipliers above</div>';
+    document.getElementById('main').style.display='none';
+    document.getElementById('muVal').textContent='—';
+    document.getElementById('sigVal').textContent='—';
+    document.getElementById('heVal').textContent='—';
+    if(chart){chart.destroy();chart=null}
+    return;
+  }
+
+  hg.innerHTML=rounds.slice(0,50).map((v,i)=>{
+    const op=i<6?1:Math.max(0.3,1-i*0.016);
+    return`<div class="chip ${tier(v)}" style="opacity:${op}" onclick="removeAt(${i})" title="Remove">${v.toFixed(2)}x</div>`
+  }).join('');
+
+  const logs=rounds.map(v=>Math.log(v));
+  const mu=logs.reduce((a,b)=>a+b,0)/n;
+  const variance=logs.reduce((a,b)=>a+(b-mu)**2,0)/n;
+  const sigma=Math.sqrt(variance);
+
+  document.getElementById('muVal').textContent=mu.toFixed(3);
+  document.getElementById('sigVal').textContent=sigma.toFixed(3);
+
+  const geoMean=Math.exp(mu);
+  const arithmMean=rounds.reduce((a,b)=>a+b,0)/n;
+  const houseEdge=Math.max(0,(1-1/arithmMean)*100);
+  document.getElementById('heVal').textContent=houseEdge.toFixed(1)+'%';
+
+  document.getElementById('main').style.display='block';
+  document.getElementById('gmean').textContent=geoMean.toFixed(2)+'x';
+  document.getElementById('lastv').textContent=rounds[0].toFixed(2)+'x';
+  document.getElementById('lastlbl').textContent='Most recent round';
+
+  const sig=document.getElementById('lastsig');
+  const r3=rounds.slice(0,Math.min(3,n));
+  const r3avg=r3.reduce((a,b)=>a+b,0)/r3.length;
+  if(r3avg<1.5)sig.innerHTML='<div class="sig sl"><i class="ti ti-arrow-down" aria-hidden="true"></i> Below avg zone</div>';
+  else if(r3avg>=5)sig.innerHTML='<div class="sig sh"><i class="ti ti-arrow-up" aria-hidden="true"></i> Above avg zone</div>';
+  else sig.innerHTML='<div class="sig sm"><i class="ti ti-minus" aria-hidden="true"></i> Near average</div>';
+
+  const pBelow2=logNormalCDF(2,mu,sigma)*100;
+  const pAbove10=(1-logNormalCDF(10,mu,sigma))*100;
+  const pMid=100-pBelow2-pAbove10;
+  document.getElementById('z1').textContent=pBelow2.toFixed(1)+'%';
+  document.getElementById('z2').textContent=Math.max(0,pMid).toFixed(1)+'%';
+  document.getElementById('z3').textContent=pAbove10.toFixed(1)+'%';
+
+  const sorted=[...rounds].sort((a,b)=>a-b);
+  document.getElementById('p25').textContent=percentile(rounds,25).toFixed(2)+'x';
+  document.getElementById('p50').textContent=percentile(rounds,50).toFixed(2)+'x';
+  document.getElementById('p75').textContent=percentile(rounds,75).toFixed(2)+'x';
+  document.getElementById('p90').textContent=percentile(rounds,90).toFixed(2)+'x';
+  const std=Math.sqrt(rounds.reduce((a,b)=>a+(b-arithmMean)**2,0)/n);
+  document.getElementById('stddev').textContent=std.toFixed(2);
+  document.getElementById('skew').textContent=skewness(rounds).toFixed(2);
+
+  if(n>=5){
+    const t70=logNormalInvApprox(0.30,mu,sigma);
+    const t50=logNormalInvApprox(0.50,mu,sigma);
+    document.getElementById('t70').textContent=Math.max(1.01,t70).toFixed(2)+'x';
+    document.getElementById('t50').textContent=Math.max(1.01,t50).toFixed(2)+'x';
+    const fit=Math.min(92,50+n*2);
+    document.getElementById('cfill').style.width=fit+'%';
+    document.getElementById('cpct').textContent=fit+'%';
+    document.getElementById('predtext').textContent=
+      `Based on ${n} rounds, your data fits a log-normal distribution (μ=${mu.toFixed(2)}, σ=${sigma.toFixed(2)}). `+
+      `The 70% target means the game crashed above this level in ~70 of 100 rounds in your sample. `+
+      `More data = more reliable fit.`;
+    document.getElementById('modelnote').textContent=`Log-normal MLE fit • ${n} rounds • geo.mean ${geoMean.toFixed(2)}x`;
+  } else {
+    document.getElementById('t70').textContent='—';
+    document.getElementById('t50').textContent='—';
+    document.getElementById('cfill').style.width='0%';
+    document.getElementById('cpct').textContent='0%';
+    document.getElementById('predtext').textContent='Add at least 5 rounds to fit the model.';
+  }
+
+  renderChart(mu,sigma);
+}
+
+function removeAt(i){rounds.splice(i,1);render()}
+
+function renderChart(mu,sigma){
+  const data=rounds.slice(0,25).reverse();
+  const labels=data.map((_,i)=>'R'+(i+1));
+  const cols=data.map(v=>v>=10?'#8ab0ff':v>=5?'#00cf9a':v>=2?'#ffc400':v>=1.5?'#ff9500':'#ff4444');
+  if(chart)chart.destroy();
+  chart=new Chart(document.getElementById('tc'),{
+    type:'bar',
+    data:{labels,datasets:[{data,backgroundColor:cols,borderRadius:3,borderSkipped:false}]},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{
+        backgroundColor:'#181920',titleColor:'#ffc400',bodyColor:'#dde0ea',
+        borderColor:'rgba(255,196,0,.18)',borderWidth:1,
+        callbacks:{label:c=>c.parsed.y.toFixed(2)+'x'}
+      }},
+      scales:{
+        x:{grid:{color:'rgba(255,255,255,.03)'},ticks:{color:'rgba(255,255,255,.22)',font:{size:9}}},
+        y:{grid:{color:'rgba(255,255,255,.03)'},min:0,
+           ticks:{color:'rgba(255,255,255,.22)',font:{size:9},callback:v=>v.toFixed(1)+'x'}}
+      }
+    }
+  });
+}
+</script>
